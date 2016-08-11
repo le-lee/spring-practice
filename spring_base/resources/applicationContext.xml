@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 						http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+ 						http://www.springframework.org/schema/context
+ 						http://www.springframework.org/schema/context/spring-context-3.2.xsd
+ 						http://www.springframework.org/schema/aop
+ 						http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+
+
+	<!-- 配置文件方式 
+	<bean id="studentService" class="com.eshore.spring_base.service.impl.StudentServiceImpl" scope="prototype">
+		<property name="studentDao" ref="studentDao"></property>
+	</bean>
+	
+	<bean id="studentDao" class="com.eshore.spring_base.dao.impl.StudentDaoImpl"></bean>
+	
+	<bean id="studentDaoNew" class="com.eshore.spring_base.dao.impl.StudentDaoNewImpl"></bean> 
+	
+	-->
+    
+    <context:component-scan base-package="com.eshore.*" />
+    
+    
+    <!-- <bean id="monkeyService" class="com.eshore.spring_base.service.impl.MonkeyServiceImpl" />
+    
+    <bean id="servicePointCut" class="com.eshore.spring_base.aop.ServicePointCut"></bean> -->
+    
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+    
+    <!-- 
+    <aop:config>
+    	<aop:aspect id="aspectPointCut" ref="servicePointCut">
+    		<aop:pointcut expression="execution(* *(..))" id="pointCut"/>
+    		<aop:pointcut expression="execution(* *.touTaoZi(..))" id="pointCut"/>
+    		<aop:pointcut expression="execution(!void *(..))" id="pointCut"/>
+    		<aop:before method="doBefore" pointcut-ref="pointCut"/>
+    		<aop:after method="doEnd" pointcut-ref="pointCut"/>
+    	</aop:aspect>
+    </aop:config>
+    -->
+</beans>
